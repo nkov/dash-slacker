@@ -1,0 +1,16 @@
+{
+  "name": "dash-slacker",
+  "version": "1.0.0",
+  "description": "Will connect your dash button to a slack channel and post a message.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "findbutton": "./node_modules/node-dash-button/bin/findbutton"
+  },
+  "author": "github.com/nkov",
+  "license": "MIT",
+  "dependencies": {
+    "node-dash-button": "0.6.1",
+    "yargs": "9.0.1"
+  }
+}
