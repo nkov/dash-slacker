@@ -42,14 +42,21 @@ Will connect your dash button to a slack channel and post a message.
 
 Take the `config.json.sample` and save it as `config.json` for use in the following command.
 
+*Note*: sudo is needed to access network devices.
+
 ### Locally
 
-      $ sudo node dash-slacker.js --configFile=/path/to/config.json
+      $ sudo bin/dash-slacker.js --configFile=/path/to/config.json
       // Note: config.json in the project directory is used by default
 
 ### Globally
 
       $ sudo dash-slacker --configFile=/path/to/config.json
+
+#### Additional Parameters
+
+      -m  --  Wireless listening mode (arp/udp/all) (default: arp)
+      -t  --  Min timeout (seconds) between requests (default: 60)
 
 ## Contributing
 
