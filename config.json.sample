@@ -1,0 +1,13 @@
+{
+  "buttons": [{
+    "key": "de:vi:ce:id:go:es:he:re",
+    "name": "Name of the service",
+    "action": "slack",
+    "slack": {
+      "webhook": "<webhook here>",
+      "channel": "#general",
+      "username": "DashSlackerBot",
+      "message": "Hello world!"
+    }
+  }]
+}

@@ -12,9 +12,11 @@ Will connect your dash button to a slack channel and post a message.
 
 ## Setup
 
-1. Install Dash Slacker
+### Locally
 
-        $ npm install -g dash-slacker
+1. Clone repo and install dependencies
+
+        $ npm install
 
 2. Listen for ARP Pings on your network
         
@@ -23,9 +25,30 @@ Will connect your dash button to a slack channel and post a message.
 3. Press your dash button to emit an ARP ping and record its *MAC address*.
     -  You can do it a few times to be sure you have the right one.
 
+### Globally
+
+1. Install Dash Slacker
+
+        $ npm install -g dash-slacker
+
+2. Listen for ARP Pings on your network
+        
+        $ sudo dash-slacker-findbutton
+
+3. Press your dash button to emit an ARP ping and record its *MAC address*.
+    -  You can do it a few times to be sure you have the right one.
+
 ## Usage
 
-      $ dash-slacker -d <deviceId/MACaddress> -c <channelId> -m <message>
+Take the `config.json.sample` and save it as `config.json` for use in the following command.
+
+### Locally
+
+      $ sudo node dash-slacker.js --config=/path/to/config.json
+
+### Globally
+
+      $ sudo dash-slacker --config=/path/to/config.json
 
 ## Contributing
 
@@ -34,3 +57,7 @@ Pull requests are welcome!
 ## License
 
 MIT
+
+Copyright &copy; 2017 nkov.
+
+Made with :heart: in NYC.

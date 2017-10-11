@@ -1,30 +1,40 @@
 #!/usr/bin/env node
-const { argv } = require('yargs');
 const DashButton = require('node-dash-button');
 const { sendSlack } = require('./handler');
-const { d, c, m } = argv;
-
 const DASH_TIMEOUT = 60 * 1000;
-let detectLocked = false;
-const setDetectLocked = () => {
-  detectLocked = true;
+const config = require('./config.json');
+const { buttons } = config;
+
+// waitlocks
+let detectLocked = [];
+const setDetectLocked = (key) => {
+  detectLocked[key] = true;
   setTimeout(() => {
-    detectLocked = false;
+    detectLocked[key] = false;
     console.log('listening..');
   }, DASH_TIMEOUT);
 };
 
-if (!d) {
-  console.log('Error! No device given!');
+if (!buttons || !buttons.length) {
+  console.log('Error: no buttons specified in config.json!');
   process.exit(0);
 }
 
-const dashButton = DashButton(d, null, null, 'arp');
-dashButton.on('detected', () => {
-  if (detectLocked) { console.log('skipped..'); return false; }
+let dashButton
+buttons.forEach(button => {
+  const { slack } = button;
+  if (!slack || !slack.webhook) {
+    console.log('Error: button missing webhook');
+    process.exit(0);
+  }
+  dashButton = DashButton(button.key, null, null, 'arp');
+  dashButton.on('detected', () => {
+    if (detectLocked[button.key]) { console.log('skipped..'); return false; }
 
-  sendSlack(c, m);
-  setDetectLocked()
+    console.log(`Starting service: "${button.name}"`);
+    sendSlack(slack.webhook, slack.channel, slack.message, slack.username);
+    setDetectLocked(button.key)
+  });
 });
 
 console.log('listening..');
