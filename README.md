@@ -44,11 +44,12 @@ Take the `config.json.sample` and save it as `config.json` for use in the follow
 
 ### Locally
 
-      $ sudo node dash-slacker.js --config=/path/to/config.json
+      $ sudo node dash-slacker.js --configFile=/path/to/config.json
+      // Note: config.json in the project directory is used by default
 
 ### Globally
 
-      $ sudo dash-slacker --config=/path/to/config.json
+      $ sudo dash-slacker --configFile=/path/to/config.json
 
 ## Contributing
 
@@ -56,7 +57,7 @@ Pull requests are welcome!
 
 ## License
 
-MIT
+MIT.
 
 Copyright &copy; 2017 nkov.
 

@@ -1,8 +1,13 @@
-#!/usr/bin/env node
 const DashButton = require('node-dash-button');
+const { argv } = require('yargs');
 const { sendSlack } = require('./handler');
 const DASH_TIMEOUT = 60 * 1000;
-const config = require('./config.json');
+const { configFile } = argv;
+if (!configFile) {
+  console.log('Error: no configFile specified!');
+  process.exit(0);
+}
+const config = require(configFile || './config.json');
 const { buttons } = config;
 
 // waitlocks
