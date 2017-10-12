@@ -1,6 +1,6 @@
 {
   "name": "dash-slacker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Will connect your dash button to a slack channel and post a message.",
   "main": "./lib/index.js",
   "scripts": {
@@ -16,5 +16,9 @@
     "node-dash-button": "0.6.1",
     "node-slack": "0.0.7",
     "yargs": "9.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nkov/dash-slacker.git"
   }
 }
