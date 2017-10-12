@@ -33,25 +33,25 @@ Will connect your dash button to a slack channel and post a message.
 
 2. Listen for ARP Pings on your network
         
-        $ sudo dash-slacker-findbutton
+        $ sudo dash-findbutton
 
 3. Press your dash button to emit an ARP ping and record its *MAC address*.
     -  You can do it a few times to be sure you have the right one.
 
 ## Usage
 
-Take the `config.json.sample` and save it as `config.json` for use in the following command.
+Take the `config.json.sample` and save it as `config.json` somewhere you like for use in the following command.
 
 *Note*: sudo is needed to access network devices.
 
 ### Locally
 
-      $ sudo bin/dash-slacker.js --configFile=/path/to/config.json
+      $ sudo bin/dash-slacker.js --configFile=/absolute/path/to/config.json
       // Note: config.json in the project directory is used by default
 
 ### Globally
 
-      $ sudo dash-slacker --configFile=/path/to/config.json
+      $ sudo dash-slacker --configFile=/absolute/path/to/config.json
 
 #### Additional Parameters
 
